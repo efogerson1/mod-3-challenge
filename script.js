@@ -1,5 +1,20 @@
 // Assignment code here
+const numbers = []
+const lower=[]
+
+const validOptions=[]
+const firstpicks=["numbers","lower","upper"]
+//first pick random and its index 0
+//now add a random number to retval
+//firstpicks= firstpicks.splice(0,1)
+
 function generatePassword() {
+  /* Add prompts -- stored in variables */
+  /* Conditionals -- if they say yes to special char, select random spec char and immediatly add to returnval */
+  /* Take selected arrays, concat into returnVal and into validOptions
+  at this point we have a retval of X length and possibly want more. retval meets min user acceptance
+  loops will equal userChoice-retval.length
+  */
   var length = 8,
       charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
       retVal = "";
