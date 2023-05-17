@@ -1,51 +1,51 @@
 // Assignment code here
-// const numbers = ["1", "2", "3"];
-// const randomNumbers = Math.floor(Math.random() * numbers.length);
-
-
-// const upper = ["A", "B", "C"]
-// const randomUpper = Math.floor(Math.random() * upper.length);
-
-// const lower=["a","b","c"];
-// const randomLower = Math.floor(Math.random() * lower.length);
-
-// const validOptions=[randomNumbers, randomLower, randomUpper ]
-// const firstpicks=["numbers","lower","upper"]
-
-
 
 
 function generatePassword() {
  
+  /* Initial prompt for length of password - parses integer that is provided& determines if valid */
   var length = parseInt(prompt("Enter the desired length of the password:"));
 
   if (isNaN(length) || length < 8 || length > 120) {
     alert("Invalid length. Please enter a valid number between 8 and 120.");
     return;
   }
-
-  var useUppercase = confirm("Include uppercase letters?");
-  var useLowercase = confirm("Include lowercase letters?");
+/* Rather than use additional prompts, remove chance of errant inputs by using confirms */
+  var useUpper = confirm("Include uppercase letters?");
+  var useLower = confirm("Include lowercase letters?");
   var useNumbers = confirm("Include numbers?");
   var useSymbols = confirm("Include symbols?");
 
-  if (!useUppercase && !useLowercase && !useNumbers && !useSymbols) {
+  if (!useUpper && !useLower && !useNumbers && !useSymbols) {
     alert("At least one character type must be selected.");
     return;
+  } // logic to ensure viable input is provided
+/* Adding if statements for each possible param for password */
+  var charset = "";
+  
+  if (useUpper) {
+    charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   }
+  
+  if (useLower) {
+    charset += "abcdefghijklmnopqrstuvwxyz";
+  }
+  
+  if (useNumbers) {
+    charset += "0123456789";
+  }
+  
+  if (useSymbols) {
+    charset += "!@#$%^&*()_-+=<>?";
+  }
+  /* Concat selected character sets based on the confirmation results.*/
 
-
+  /* concated string is added to the retVal variable. */
+  var retVal = "";
  
-      charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-      retVal = "";
+      
   for (var i = 0, n = charset.length; i < length; ++i) {
       retVal += charset.charAt(Math.floor(Math.random() * n));
-
-      
-      
-      
-      
-      
   }
   return retVal;
 }
